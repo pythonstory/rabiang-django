@@ -146,6 +146,9 @@ ENV/
 # SQLite3 database
 *.sqlite3
 
+# Migration files are not commited
+*/migrations/*.py
+
 # config files for test/dev/production
 prod.cfg
 dev.cfg
