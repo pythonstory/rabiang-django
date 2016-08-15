@@ -3,6 +3,13 @@ from django.db import models
 from django.utils import timezone
 
 
+class NamedModel(models.Model):
+    class Meta:
+        abstract = True
+
+    name = models.CharField(max_length=250)
+
+
 class TimeStampedModel(models.Model):
     class Meta:
         abstract = True
@@ -18,7 +25,8 @@ class Post(TimeStampedModel):
     )
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250,
-                            unique_for_date='publish')
+                            unique_for_date='publish',
+                            allow_unicode=True)
     author = models.ForeignKey(User, related_name="posts")
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)

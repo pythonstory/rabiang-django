@@ -7,3 +7,4 @@
 - logging
 - testing
 - admin customizing
+- caching
